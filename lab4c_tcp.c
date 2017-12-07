@@ -89,6 +89,7 @@ int thread_function()
         strftime(time_storage, 9, "%H:%M:%S",current_time);
         if(running)
         {
+            dprintf(sockfd,"%s %.1f\n",time_storage,real_temp);
             if(logging)
             {
                 write(log_val,time_storage,strlen(time_storage));

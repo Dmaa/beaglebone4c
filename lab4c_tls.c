@@ -96,6 +96,13 @@ int thread_function()
         strftime(time_storage, 9, "%H:%M:%S",current_time);
         if(running)
         {
+            char tmp_buf[15];
+            sprintf(tmp_buf, "%s %2.1f\n", time_buffer, real_temp);
+            if(SSL_write(ssl, tmp_buf, strlen(tmp_buf)) < 0) {
+                fprintf(stderr, "could not write report\n");
+                exit(2);
+            }
+
             if(logging)
             {
                 write(log_val,time_storage,strlen(time_storage));
@@ -105,7 +112,6 @@ int thread_function()
                 write(log_val,s_temp,strlen(s_temp));
                 write(log_val,"\n",1);
             }
-            printf("%s %.1f \n", time_storage, real_temp);
         }
         processedOne = true;
         sleep(period);
@@ -211,13 +217,19 @@ int main(int argc, char *argv[])
     }
 
     //IMMEDIATELY REPORT ID:
-    dprintf(sockfd, "ID=%d\n", id);
+    //dprintf(sockfd, "ID=%d\n", id);
+    char id_report[15];
+    sprintf(id_report, "ID=%d\n", id);
+    if(SSL_write(ssl, id_report, strlen(id_report)) < 0) {
+        fprintf(stderr, "ERROR: COULD NOT WRITE ID\n");
+        exit(2);
+    }
     if (logging){
         char s_id[10];
-        sprintf(s_id, "%d", id);
-        write(log_val, "ID=", 3);
+        sprintf(s_id,"%d",id);
+        write(log_val,"ID=",3);
         write(log_val, s_id,strlen(s_id));
-        write(log_val,"\n", 1);
+        write(log_val,"\n",1);
     }
 
     //thread stuff
@@ -255,7 +267,7 @@ int main(int argc, char *argv[])
             }
 
             if ((poll_list[0].revents & POLLIN) == POLLIN) {
-                count=SSL_read(ssl, buffer, 2048);
+                count = SSL_read(ssl, buffer, 2048);
                 int i;
                 for (i = 0; i < count; i++) {
                     if (buffer[i] == 3) {
