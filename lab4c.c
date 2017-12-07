@@ -22,6 +22,8 @@ static struct option long_options[]={
         {"period",required_argument,NULL,'p'},
         {"scale",required_argument,NULL,'s'},
         {"log",required_argument,NULL,'l'},
+        {"id", required_argument, NULL, 'i'},
+        {"host", optional_argument, NULL, 'h'},
         {0,0,0,0}
 };
 
@@ -123,6 +125,12 @@ int main(int argc, char *argv[])
                 break;
             case 's' :
                 tempType = optarg[0];
+                break;
+            case 'i':
+                id = atoi(optarg);
+                break;
+            case 'h':
+                host = optarg;
                 break;
             case '?':
                 fprintf(stderr, "Unrecognized argument, correct usage is \n");
