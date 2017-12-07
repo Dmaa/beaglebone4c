@@ -1,5 +1,5 @@
 #!/bin/bash
-default: lab4c_tcp
+default: lab4c_tcp lab4c_tls
 
 lab4c_tcp: lab4c_tcp.c
 	gcc -g -pthread -lm -lmraa lab4c_tcp.c -o lab4c_tcp
