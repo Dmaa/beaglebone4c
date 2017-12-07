@@ -3,7 +3,7 @@
 //
 
 #include <stdio.h>
-#include <mraa.h>s
+#include <mraa.h>
 #include <string.h>
 #include <signal.h>
 #include <math.h>
@@ -54,6 +54,9 @@ int portnum = 19000;
 int id = 000011100;
 char* host = "lever.cs.ucla.edu";
 int sockfd;
+
+SSL_CTX* ssl_context;
+SSL * ssl;
 
 
 void do_when_interrupted()

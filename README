@@ -1,4 +1,11 @@
 NAME: Dharma Naidu
 EMAIL: connectdharma@gmail.com
 UID: 304815342
-Blah Blah Blah
+
+Makefile: Making this file was pretty easy. It was similar to other makefiles; the only new adaptation I made
+was figuring out how to put both tcp and tls capability in the same project. In the end, I decided to make
+2 c source files, and one makefile that compiled both. No make check was required, so no source files were
+needed
+
+lab4c_tcp
+
