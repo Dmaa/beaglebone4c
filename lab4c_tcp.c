@@ -46,7 +46,7 @@ char time_storage[9];
 sig_atomic_t volatile run_flag=1;
 
 //server-client variables
-int portnum;
+int portnum = 18000;
 int id = 000011100;
 char* host = "lever.cs.ucla.edu";
 int sockfd;
@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
 
     //FOR THE SAKE OF DEBUGGING
     //TODO: comment this line out
-    portnum = 18000;
+    //portnum = 18000;
 
     //SOCKET
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
