@@ -97,7 +97,7 @@ int thread_function()
         if(running)
         {
             char tmp_buf[15];
-            sprintf(tmp_buf, "%s %2.1f\n", time_buffer, real_temp);
+            sprintf(tmp_buf, "%s %2.1f\n", time_storage, real_temp);
             if(SSL_write(ssl, tmp_buf, strlen(tmp_buf)) < 0) {
                 fprintf(stderr, "could not write report\n");
                 exit(2);
