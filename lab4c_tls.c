@@ -105,7 +105,7 @@ int thread_function()
                 write(log_val,s_temp,strlen(s_temp));
                 write(log_val,"\n",1);
             }
-            //printf("%s %.1f \n", time_storage, real_temp);
+            printf("%s %.1f \n", time_storage, real_temp);
         }
         processedOne = true;
         sleep(period);
