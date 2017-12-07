@@ -7,5 +7,5 @@ was figuring out how to put both tcp and tls capability in the same project. In 
 2 c source files, and one makefile that compiled both. No make check was required, so no source files were
 needed
 
-lab4c_tcp
+lab4c_tcp.c: The adaptations required
 

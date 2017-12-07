@@ -2,9 +2,9 @@
 default: lab4c_tcp lab4c_tls
 
 lab4c_tcp: lab4c_tcp.c
-	gcc -g -pthread -lm -lmraa lab4c_tcp.c -o lab4c_tcp
+	gcc -g -pthread -lm -lmraa lab4c_tcp.c -Wall -Wextra -o lab4c_tcp
 lab4c_tls:
-	gcc -g -pthread -lm -lmraa lab4c_tls.c -o lab4c_tls
+	gcc -g -pthread -lm -lmraa lab4c_tls.c -Wall -Wextra -lssl -lcrypto -o lab4c_tls
 clean:
 	rm -f lab4c_tcp lab4c_tls  *.tar.gz
 dist:
