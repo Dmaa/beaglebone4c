@@ -74,7 +74,7 @@ int thread_function()
 
     while(run_flag)
     {
-
+        //hi
         uint16_t temp;
         temp = mraa_aio_read(temperature);
         float R = 625.0 / temp - 1.0;
