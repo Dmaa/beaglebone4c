@@ -51,7 +51,7 @@ sig_atomic_t volatile run_flag=1;
 
 //server-client variables
 int portnum = 19000;
-int id = 000011100;
+int id = 999999999;
 char* host = "lever.cs.ucla.edu";
 int sockfd;
 
