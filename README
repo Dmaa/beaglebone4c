@@ -7,5 +7,11 @@ was figuring out how to put both tcp and tls capability in the same project. In 
 2 c source files, and one makefile that compiled both. No make check was required, so no source files were
 needed
 
-lab4c_tcp.c: The adaptations required
+lab4c_tcp.c: The adaptations required were fairly simple - I just adapted my old server-client code to open a connection
+to the appropriate website, then read from the tcp socket instead of from stdin. I also removed the part of the code
+that printed to stdout.
+
+lab4c_tls.c: This program was slightly harder to make. I had to make a new connection, but I also had to use different
+functions to read and write, namely ssl_read and ssl_write. Additionally, the TLS server kept crashing while I was
+trying to run my program, so that added to the debugging time.
 
